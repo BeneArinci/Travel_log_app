@@ -14,3 +14,6 @@ body {
     height: '10px'
 }
 
+.popup{
+    max-width: 300px;
+}
