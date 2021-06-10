@@ -50,9 +50,8 @@ const App = () => {
             {
                 logEntries.map((entry) => {
                     return (
-                        <>
+                        <React.Fragment key = {entry._id}>
                             <Marker 
-                                key = {entry._id}
                                 latitude={entry.latitude}
                                 longitude={entry.longitude} 
                                 offsetLeft={-24} 
@@ -101,9 +100,7 @@ const App = () => {
                                 </Popup> 
                                 ) : null
                             }
-                           
-
-                        </>
+                        </React.Fragment>
                        
                     )
                 })
@@ -127,7 +124,12 @@ const App = () => {
                                 marginTop: '10px',
                             }}>
                             <div>
-                                <LogEntryForm location={addEntryLocation}/>
+                                <LogEntryForm 
+                                onClose={() => {
+                                    setAddEntryLocation(false);
+                                    getLogs();
+                                }}  
+                                location={addEntryLocation}/>
                             </div>
                         </Popup> 
                         <Marker 

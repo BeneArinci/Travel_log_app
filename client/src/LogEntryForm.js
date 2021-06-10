@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { createLogEntry } from "../src/API"
 
 
-const LogEntryForm = ({ location }) => {
+const LogEntryForm = ({ location, onClose }) => {
     const { register, handleSubmit } = useForm();
 
     const [ loading, setLoading ] = useState(false)
@@ -19,7 +19,8 @@ const LogEntryForm = ({ location }) => {
                 longitude: location.longitude
             }
             const created = createLogEntry(completeData);
-            console.log(created)
+            console.log(created);
+            onClose();
 
         } catch (error) {
             setError(error.message)
