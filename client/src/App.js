@@ -26,13 +26,11 @@ const App = () => {
     }
 
     const showAddMarkerPopup = (event) => {
-        const [ longitude, latitude ] = event.lngLat
+        const [ longitude, latitude ] = event.lngLat;
         setAddEntryLocation({
             longitude,
             latitude
-        }
-            
-        )
+        });
     
     }
     
@@ -129,7 +127,7 @@ const App = () => {
                                 marginTop: '10px',
                             }}>
                             <div>
-                                <LogEntryForm />
+                                <LogEntryForm location={addEntryLocation}/>
                             </div>
                         </Popup> 
                         <Marker 
